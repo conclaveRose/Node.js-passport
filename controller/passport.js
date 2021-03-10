@@ -2,7 +2,7 @@
 
 //로그인할 때 유저가 입력한 이메일이 데이터베이스의 비밀번호와 일치하는지를 확인하기 위한 작업
 
-
+//전통적인 아이디와 비번을 이용해서 로그인 하는 방식의 전략을 선택한다.
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
 //해시를 해독하여 암호와 일치하는지를 확인하기 위해서 bcrypt를 불러온다.
@@ -15,7 +15,9 @@ const User = require('../models/userStorage');
 //app.js 파일에서 사용하기 위해 함수 내보내기를 한다.
 module.exports = function (passport) {
     passport.use(
-        new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+        new LocalStrategy({ usernameField: 'email' }, (email, password, done) => { //첫번째 인자로 들어간 객체의 usernameField는 유저의 기본 이름을 email로 사용하겠다는 것이다. 그리고 두번째 콜백함수 인자로 form 으로 전달받은 정보인 email과 password가 들어간다. 
+            //usernameField와 passwordField의 기본값은 'username' 과 'password'이다 
+
             //Match User  로그인 정보와 데이터베이스 정보가 일치하는지 확인하는 절차
             User.findOne({ email: email })
                 .then(user => {
