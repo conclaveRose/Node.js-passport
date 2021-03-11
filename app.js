@@ -10,9 +10,6 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
-//Passport.js를 불러온다. (passport를 인자로 passport.js파일로 전달하고 그것을 다시 받아온다. )
-require('./controller/passport')(passport);
-
 
 //dotenv를 요청한다. (외부로 유출되면 안되는 것을 관리하는 파일이다.)
 require('dotenv').config({ path: '.env' });
