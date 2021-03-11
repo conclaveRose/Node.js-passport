@@ -36,7 +36,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Connect flash 
+//Connect flash (flash의 경우 내부적으로 session이용하고 있기 때문에 반드시 session 미들웨어 다음에 정의해 줘야 한다!!!!!!!!!!)
 app.use(flash());
 
 //Global Vars 전역변수
@@ -57,12 +57,6 @@ app.set('view engine', 'ejs');
 //라우팅 미들웨어 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-
-
-
-
-
-
 
 
 //3000번 포트 서버 가동

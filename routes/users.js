@@ -94,7 +94,7 @@ router.post('/register', (req, res) => {
 
 //로그인 핸들러 ( Read )
 router.post('/login', (req, res, next) => {
-    passport.authenticate('local', { //로그인 form에서 전달하는 정보(아이디,패스워드)를 passport가 받게끔 하는 것. ->  전략은 로컬전략을 사용하겠다. 
+    passport.authenticate('local', { //고객이 로그인 form에서 전달하는 정보(아이디,패스워드)를 passport가 받게끔 하는 것. -> 패스포트 전략은 로컬전략을 사용하겠다. 
         successRedirect: '/dashboard',  //고객이 입력한 로그인 정보가 데이터베이스 정보와 일치할 경우 대시보드 페이지로 이동 
         failureRedirect: '/users/login', //고객이 입력한 로그인 정보가 데이터베이스 정보와 일치하지 않을 경우 
         failureFlash: true //플래쉬 메시지 사용 (예: 만약 로그인할 때 이메일이나 비번이 틀렸을 시 틀렸다는 메시지를 화면에 띄우기 위해서 사용)

@@ -1,3 +1,4 @@
+<!-- 회원가입시 잘못 입력되거나 누락된 입력칸이 있을 시 뜨는 플래시 메시지  -->
 <% if (typeof errors != 'undefined') { %> <% errors.forEach(err => { %>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <%= err.msg %>
@@ -10,7 +11,9 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<% }) %> <% } %> <% if (success_msg != '') { %>
+<% }) %> <% } %>
+<!-- 정상적으로 회원가입 또는 로그아웃 되었을 시 뜨는 플래시 메시지 -->
+<% if (success_msg != '') { %>
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   <%= success_msg %>
   <button
