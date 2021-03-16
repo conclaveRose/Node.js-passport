@@ -30,7 +30,7 @@ app.use(session({
 }));
 
 //Passport middleware 패스포트 미들웨어 
-app.use(passport.initialize());
+app.use(passport.initialize()); //passport를 사용하겠다 
 app.use(passport.session());
 
 //Connect flash (flash의 경우 내부적으로 session이용하고 있기 때문에 반드시 session 미들웨어 다음에 정의해 줘야 한다!!!!!!!!!!)

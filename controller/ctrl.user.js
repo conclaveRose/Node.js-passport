@@ -77,7 +77,7 @@ const process = {
                 });
         }
     },
-    //로그인 프로세스
+    //로그인 프로세스  (사용자가 전송한 데이터를 서버가 받았을때 어떻게 처리하는지를 정의한 코드)
     login: (req, res, next) => {
         passport.authenticate('local', { //고객이 로그인 form에서 전달하는 정보(아이디,패스워드)를 passport가 받게끔 하는 것. -> 패스포트 전략은 로컬전략을 사용하겠다. 
             successRedirect: '/dashboard',  //고객이 입력한 로그인 정보가 데이터베이스 정보와 일치할 경우 대시보드 페이지로 이동 
